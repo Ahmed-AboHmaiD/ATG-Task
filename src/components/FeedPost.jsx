@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BsThreeDots } from "react-icons/bs";
 import { GrView } from "react-icons/gr";
 import { GiShare } from "react-icons/gi";
@@ -20,6 +20,22 @@ const FeedPost = ({
     type,
   },
 }) => {
+  const [isClicked, setIsClicked] = useState(false);
+  const Choices = [
+    {
+      id: 1,
+      text: "Edit",
+    },
+    {
+      id: 2,
+      text: "Report",
+    },
+    {
+      id: 3,
+      text: "Option 3",
+    },
+  ];
+
   return (
     <div className="border mb-3 shadow-sm">
       <div>{img && <img src={img} alt={title} className="w-full" />}</div>
@@ -27,13 +43,34 @@ const FeedPost = ({
         <p>{name}</p>
         <div>
           <div className="grid grid-cols-6 font-bold my-3">
-            <div className="text-lg col-span-5">{title}</div>
-            <div className="text-lg col-span-1 ml-auto cursor-pointer">
-              <BsThreeDots />
+            <div className="text-xl col-span-5">{title}</div>
+            <div className="text-lg col-span-1 ml-auto cursor-pointer relative">
+              <button
+                className={`p-1 text-2xl hover:bg-gray_6 ${
+                  isClicked && "bg-gray_6"
+                } rounded-md transition-all duration-75`}
+                onClick={() => setIsClicked(!isClicked)}
+              >
+                <BsThreeDots />
+              </button>
+              {isClicked && (
+                <ul className="bg-white border shadow-lg p-2 flex flex-col absolute right-2 top-9 rounded-md w-[150px]">
+                  {Choices.map((choice) => (
+                    <li
+                      key={choice.id}
+                      className="p-1 font-normal text-sm hover:bg-shareBg transition-all duration-75"
+                    >
+                      {choice.text}
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
           </div>
           {info ? (
-            <p className="text-gray_1 overflow-hidden text-ellipsis whitespace-nowrap w-80 md:w-96 lg:whitespace-normal lg:w-auto">{info}</p>
+            <p className="text-gray_1 overflow-hidden text-ellipsis whitespace-nowrap w-80 md:w-96 lg:whitespace-normal lg:w-auto">
+              {info}
+            </p>
           ) : (
             (type === "events" || type === "jobs") && (
               <PostAbout
