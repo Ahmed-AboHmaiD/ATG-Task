@@ -72,14 +72,14 @@ const FeedSideBar = ({ joined }) => {
                     <img src={group.img} alt={group.text} />
                     <span>{group.text}</span>
                   </div>
-                  <button className="bg-shareBg p-1 px-4 rounded-full text-sm font-medium">
+                  <button className="bg-shareBg p-1 px-4 rounded-full text-sm font-medium hover:bg-black hover:text-white transition-all duration-75">
                     Follow
                   </button>
                 </li>
               ))}
             </ul>
           </div>
-          <div className="text-blue_1 mt-16 text-right">See More...</div>
+          <div className="text-blue_1 m-14 md:mt-16 text-right cursor-pointer">See More...</div>
         </div>
       )}
     </div>
