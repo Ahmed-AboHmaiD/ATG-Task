@@ -1,15 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import FeedNav from "./FeedNav";
-import { posts } from "../utils/data";
 import FeedPost from "./FeedPost";
 import FeedSideBar from "./FeedSideBar";
 
 const Feed = () => {
   const [isJoined, setIsJoined] = useState(false);
+  const [posts, setPosts] = useState([]);
 
   const handleIsJoined = (isJoined) => {
     setIsJoined(!isJoined);
   };
+
+  const fetchData = async () => {
+    const res = await fetch(
+      "https://ahmed-abohmaid.github.io/ATG-Task/utils/data.json"
+    );
+    const data = await res.json();
+
+    return data;
+  };
+
+  useEffect(() => {
+    fetchData().then((data) => setPosts(data));
+  }, []);
+
 
   return (
     <>
