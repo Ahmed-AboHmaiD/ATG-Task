@@ -12,6 +12,8 @@ module.exports = {
         gray_1: "#5C5C5C",
         gray_2: "#8A8A8A",
         gray_3: "#E0E0E0",
+        gray_4: "#525252",
+        gray_5: "#A9AEB8",
         optionsBg: "#BFBFC0",
         shareBg: "#EDEEF0",
         green_1: "#02B875",

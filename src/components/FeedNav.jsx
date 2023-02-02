@@ -8,8 +8,8 @@ const isActiveStyle = "border-b pb-6 z-10 text-black border-b-black";
 
 const FeedNav = () => {
   return (
-    <div className="grid grid-cols-6 gap-5 relative before:absolute before:h-px before:bottom-[0.5px] before:w-full before:bg-gray_3 before:z-0">
-      <div className="col-span-4 mr-10">
+    <div className="hidden md:grid grid-cols-6 gap-5 relative before:absolute before:h-px before:bottom-[0.5px] before:w-full before:bg-gray_3 before:z-0">
+      <div className="col-span-4">
         <ul className="flex items-center gap-4 text-gray_2 text-xs sm:text-sm md:text-base lg:text-md">
           <li className="pb-6 z-10 hover:text-black transition-all duration-75">
             <NavLink
