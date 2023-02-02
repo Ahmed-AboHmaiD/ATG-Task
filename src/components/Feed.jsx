@@ -3,34 +3,44 @@ import { useParams } from "react-router-dom";
 import FeedNav from "./FeedNav";
 import FeedPost from "./FeedPost";
 import FeedSideBar from "./FeedSideBar";
+import MobileCreatePost from "./MobileCreatePost";
+import Spinner from "./Spinner";
 
-const Feed = () => {
-  const [isJoined, setIsJoined] = useState(false);
+const Feed = ({ joined, handleIsJoined, isLoggin, setIsLoggin }) => {
   const [posts, setPosts] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const { category } = useParams();
-
-  const handleIsJoined = (isJoined) => {
-    setIsJoined(!isJoined);
-  };
 
   const fetchData = async () => {
     const res = await fetch(
       "https://ahmed-abohmaid.github.io/ATG-Task/utils/data.json"
     );
     const data = await res.json();
+    setIsLoading(true);
 
     return data;
   };
 
   useEffect(() => {
-    fetchData().then((data) => setPosts(data));
+    fetchData().then((data) => {
+      setPosts(data);
+      setIsLoading(false);
+    });
   }, []);
 
   return (
     <>
-      <div className="container pt-12 mx-auto max-w-full">
-        <FeedNav joined={isJoined} handleIsJoined={handleIsJoined} />
+      <div className="fixed bottom-[12px] right-[12px] z-30 sm:hidden">
+        <MobileCreatePost isLoggin={isLoggin} setIsLoggin={setIsLoggin}/>
+      </div>
+      {isLoading && <Spinner message="We are adding new ideas to your feed!" />}
+      <div className="container pt-10 mx-auto max-w-full">
+        <FeedNav
+          joined={joined}
+          handleIsJoined={handleIsJoined}
+          posts={posts}
+        />
       </div>
       <div className="container pt-5 mx-auto max-w-full">
         <div className="grid grid-cols-7 gap-5">
@@ -42,7 +52,7 @@ const Feed = () => {
               ))}
           </div>
           <div className="hidden md:block col-span-3 ml-auto">
-            <FeedSideBar joined={isJoined} />
+            <FeedSideBar joined={joined} />
           </div>
         </div>
       </div>

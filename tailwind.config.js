@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       colors: {
         blue_1: "#2F6CE5",
+        blue_2: "#212529",
         pinkL: "#FF5C5C",
         pinkR: "#F0568A",
         close: "#212529",
@@ -19,6 +20,7 @@ module.exports = {
         shareBg: "#EDEEF0",
         green_1: "#02B875",
         red_1: "#E56135",
+        input: "#D9D9DB",
       },
       spacing: {
         cover: "72px",

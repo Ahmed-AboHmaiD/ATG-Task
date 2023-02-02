@@ -44,7 +44,7 @@ const FeedPost = ({
         <p>{name}</p>
         <div>
           <div className="grid grid-cols-6 font-bold my-3">
-            <div className="text-xl col-span-5">{title}</div>
+            <div className="text-xl col-span-5 text-blue_2">{title}</div>
             <div className="text-lg col-span-1 ml-auto cursor-pointer relative">
               <button
                 className={`p-1 text-2xl hover:bg-gray_6 ${
@@ -73,7 +73,7 @@ const FeedPost = ({
               {info}
             </p>
           ) : (
-            (type === "events" || type === "jobs") && (
+            (type === "events" || type === "jobs" || type === "educations") && (
               <PostAbout
                 button={button}
                 info={info_2}

@@ -8,8 +8,10 @@ const PostAbout = ({ location, button, info, Event, Job }) => {
         <span className="flex items-center font-medium text-sm sm:text-md">
           {button.type === "event" ? (
             <Event className="inline mr-2" />
+          ) : button.type === "job" ? (
+            <Job className="inline mr-2" />
           ) : (
-            button.type === "job" && <Job className="inline mr-2" />
+            ""
           )}
           <span className="overflow-hidden text-ellipsis whitespace-nowrap w-32 lg:whitespace-normal lg:w-auto">
             {info}

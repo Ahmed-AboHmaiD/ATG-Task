@@ -5,8 +5,9 @@ import logo_3 from "../assets/logo3.png";
 import { MdOutlineArrowDropDown } from "react-icons/md";
 import { AiOutlineSearch } from "react-icons/ai";
 import { BiArrowBack } from "react-icons/bi";
+import SignUp from "./SignUp";
 
-const Header = () => {
+const Header = ({ joined, handleIsJoined, isLoggin, setIsLoggin }) => {
   return (
     <div>
       {/* For Small Devices */}
@@ -14,8 +15,11 @@ const Header = () => {
         <div>
           <BiArrowBack className="text-3xl text-white font-bold" />
         </div>
-        <button className="border-2 py-1 px-3 rounded-lg text-lg text-white">
-          Join Group
+        <button
+          className="border-2 py-1 px-3 rounded-lg text-lg text-white"
+          onClick={() => handleIsJoined(joined)}
+        >
+          {joined ? "Leave Group" : "Join Group"}
         </button>
       </div>
 
@@ -39,12 +43,17 @@ const Header = () => {
           />
         </div>
 
-        <div className="cursor-pointer text-sm sm:text-md">
+        <div
+          className="cursor-pointer text-sm sm:text-md"
+          onClick={() => setIsLoggin(isLoggin)}
+        >
           Create account.{" "}
           <span className="font-bold text-blue_1">It's free!</span>
           <MdOutlineArrowDropDown className="inline" />
         </div>
       </div>
+
+      {isLoggin && <SignUp isLoggin={isLoggin} setIsLoggin={setIsLoggin} />}
     </div>
   );
 };
