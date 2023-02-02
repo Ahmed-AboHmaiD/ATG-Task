@@ -11,7 +11,7 @@ const PostAbout = ({ location, button, info, Event, Job }) => {
           ) : (
             button.type === "job" && <Job className="inline mr-2" />
           )}
-          <span className="overflow-hidden text-ellipsis whitespace-nowrap w-32 sm:w-44 md:w-auto">
+          <span className="overflow-hidden text-ellipsis whitespace-nowrap w-32 lg:whitespace-normal lg:w-auto">
             {info}
           </span>
         </span>

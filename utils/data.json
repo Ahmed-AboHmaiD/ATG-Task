@@ -54,5 +54,22 @@
       "color": "green"
     },
     "info_2": "Innovaccer Analytics Private Ltd."
+  },
+  {
+    "id": 5,
+    "type": "educations",
+    "img": null,
+    "userImg": "https://ahmed-abohmaid.github.io/ATG-Task/src/assets/user_4.png",
+    "userName": "Joseph Gray",
+    "name": "🏫 learn",
+    "title": "Univercity",
+    "views": "1.7K",
+    "location": "Noida, India",
+    "button": {
+      "type": "job",
+      "text": "Apply",
+      "color": "green"
+    },
+    "info_2": "Innovaccer Analytics Private Ltd."
   }
 ]

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import FeedNav from "./FeedNav";
 import FeedPost from "./FeedPost";
 import FeedSideBar from "./FeedSideBar";
@@ -6,6 +7,8 @@ import FeedSideBar from "./FeedSideBar";
 const Feed = () => {
   const [isJoined, setIsJoined] = useState(false);
   const [posts, setPosts] = useState([]);
+
+  const { category } = useParams();
 
   const handleIsJoined = (isJoined) => {
     setIsJoined(!isJoined);
@@ -24,21 +27,22 @@ const Feed = () => {
     fetchData().then((data) => setPosts(data));
   }, []);
 
-
   return (
     <>
       <div className="container pt-12 mx-auto max-w-full">
-        <FeedNav />
+        <FeedNav joined={isJoined} handleIsJoined={handleIsJoined} />
       </div>
       <div className="container pt-5 mx-auto max-w-full">
         <div className="grid grid-cols-7 gap-5">
           <div className="md:col-span-4 col-span-7">
-            {posts.map((post) => (
-              <FeedPost key={post.id} post={post} />
-            ))}
+            {posts
+              .filter((post) => (category ? post.type === category : post))
+              .map((post) => (
+                <FeedPost key={post.id} post={post} />
+              ))}
           </div>
           <div className="hidden md:block col-span-3 ml-auto">
-            <FeedSideBar joined={isJoined} setJoined={handleIsJoined} />
+            <FeedSideBar joined={isJoined} />
           </div>
         </div>
       </div>

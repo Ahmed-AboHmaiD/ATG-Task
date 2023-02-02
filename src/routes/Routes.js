@@ -8,7 +8,7 @@ export const router = createBrowserRouter([
     element: <App />,
     children: [
       { index: true, element: <App /> },
-      { path: "/posts/:type", element: <Feed /> },
+      { path: "/posts/:category", element: <Feed /> },
     ],
   },
 ]);

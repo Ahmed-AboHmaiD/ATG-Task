@@ -21,6 +21,7 @@ const FeedPost = ({
   },
 }) => {
   const [isClicked, setIsClicked] = useState(false);
+
   const Choices = [
     {
       id: 1,
@@ -68,7 +69,7 @@ const FeedPost = ({
             </div>
           </div>
           {info ? (
-            <p className="text-gray_1 overflow-hidden text-ellipsis whitespace-nowrap w-80 md:w-96 lg:whitespace-normal lg:w-auto">
+            <p className="text-gray_1 overflow-hidden text-ellipsis whitespace-nowrap w-72 md:w-80 lg:whitespace-normal lg:w-auto">
               {info}
             </p>
           ) : (
