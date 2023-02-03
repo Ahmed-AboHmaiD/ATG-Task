@@ -5,7 +5,7 @@ import logo_3 from "../assets/logo3.png";
 import { MdOutlineArrowDropDown } from "react-icons/md";
 import { AiOutlineSearch } from "react-icons/ai";
 import { BiArrowBack } from "react-icons/bi";
-import SignUp from "./SignUp";
+import Loggin from "./Loggin";
 
 const Header = ({ joined, handleIsJoined, isLoggin, setIsLoggin }) => {
   return (
@@ -53,7 +53,7 @@ const Header = ({ joined, handleIsJoined, isLoggin, setIsLoggin }) => {
         </div>
       </div>
 
-      {isLoggin && <SignUp isLoggin={isLoggin} setIsLoggin={setIsLoggin} />}
+      {isLoggin && <Loggin isLoggin={isLoggin} setIsLoggin={setIsLoggin} />}
     </div>
   );
 };
