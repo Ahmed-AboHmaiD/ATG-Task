@@ -1,5 +1,13 @@
 # Live : [Project](https://atg-group.netlify.app)
+<br>
 
+### Lagre Devices
+![alt text](./src/assets/one.png)
+
+### Mobile
+![alt text](./src/assets/two.png)
+
+---
 ## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
